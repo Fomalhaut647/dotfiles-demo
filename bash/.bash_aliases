@@ -1,0 +1,75 @@
+alias cls='clear'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ll='ls -alhF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+alias py='python'
+
+# ===================================================================
+# 万能解压函数 ex()
+#
+# 用法: ex <file>
+# ===================================================================
+ex() {
+    # 检查是否提供了文件名
+    if [ -z "$1" ]; then
+        echo "用法: ex <file>"
+        return 1
+    fi
+
+    # 检查文件是否存在
+    if ! [ -f "$1" ]; then
+        echo "错误: '$1' 不是一个有效的文件或不存在。"
+        return 1
+    fi
+
+    # 根据文件后缀名选择解压命令
+    case "$1" in
+        *.tar.bz2|*.tbz2) tar -xvjf "$1"    ;;
+        *.tar.gz|*.tgz)   tar -xvzf "$1"    ;;
+        *.tar.xz|*.txz)   tar -xvJf "$1"    ;;
+        *.tar)            tar -xvf "$1"     ;;
+        *.zip|*.jar)      unzip "$1"        ;;
+        *.rar)            unrar x "$1"      ;;
+        *.7z)             7z x "$1"         ;;
+        *.gz)             gunzip "$1"       ;;
+        *.bz2)            bunzip2 "$1"      ;;
+        *)
+            echo "错误: 无法识别 '$1' 的压缩格式。"
+            return 1
+            ;;
+    esac
+}
+
+if [ -f ~/.bash_proxy ]; then
+    . ~/.bash_proxy
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+  case ":$PATH:" in
+    *":$HOME/.local/bin:"*)
+      ;;
+    *)
+      export PATH="$HOME/.local/bin:$PATH"
+      ;;
+  esac
+fi
+
+if [ -x ~/.pixi/bin/pixi ]; then
+    eval "$(pixi completion --shell bash)"
+
+    # Activate pixi environment if current directory or a parent contains pixi.toml
+    if [[ -z "${PIXI_IN_SHELL:-}" ]]; then
+        _dir="$PWD"
+        while :; do
+            if [[ -f "$_dir/pixi.toml" ]]; then
+                eval "$(pixi shell-hook --manifest-path "$_dir/pixi.toml")"
+                break
+            fi
+            [[ "$_dir" == "/" ]] && break
+            _dir="$(dirname "$_dir")"
+        done
+        unset _dir
+    fi
+fi

@@ -1,0 +1,40 @@
+[user]
+	email = fomalhaut@stu.pku.edu.cn
+	name = Fomalhaut647
+[color]
+	ui = auto
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
+[pull]
+	rebase = true
+[alias]
+    # === 1. 基础子命令缩写 (Subcommands) ===
+    s  = status
+    a  = add
+    c  = commit
+    b  = branch
+    d  = diff
+    ps = push
+    pl = pull
+    m  = merge
+    f  = fetch
+    sw = switch
+    wt = worktree
+    rs = restore
+
+    # === 2. 高频工作流组合 (Workflow) ===
+    aa = add .
+    
+    cm = commit -m
+    
+    ca = commit --amend --no-edit
+    
+    ds = diff --staged
+    
+    lg = log --oneline --graph --all

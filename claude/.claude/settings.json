@@ -1,0 +1,32 @@
+{
+  "model": "opus",
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true,
+  "permissions": {
+    "allow": [
+      "Bash(pwd)",
+      "Bash(ls *)",
+      "Bash(tree *)",
+      "Bash(find . *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(file *)",
+      "Bash(stat *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git rev-parse *)",
+      "Bash(git remote -v)",
+      "Bash(git ls-files *)",
+      "Bash(git branch --show-current)",
+      "Bash(* --version)",
+      "Bash(go version)",
+      "Bash(java -version)"
+    ]
+  }
+}

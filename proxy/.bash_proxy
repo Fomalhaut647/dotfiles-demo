@@ -1,0 +1,9 @@
+# 流量转发（在 `no_proxy` 中配置 `mirrors.tencentyun.com` 以避免腾讯云镜像走代理）
+export HTTP_PROXY="http://127.0.0.1:7890"
+export HTTPS_PROXY="http://127.0.0.1:7890"
+export ALL_PROXY="socks5://127.0.0.1:7890"
+export http_proxy="http://127.0.0.1:7890"
+export https_proxy="http://127.0.0.1:7890"
+export all_proxy="socks5://127.0.0.1:7890"
+export NO_PROXY="localhost,127.0.0.1,::1,mirrors.tencentyun.com"
+export no_proxy="localhost,127.0.0.1,::1,mirrors.tencentyun.com"

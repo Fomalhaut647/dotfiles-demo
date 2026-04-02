@@ -1,0 +1,7 @@
+{
+    "python-envs.workspaceSearchPaths": [
+        "./**/.venv",
+        "./.pixi/envs/**"
+    ],
+    "python.terminal.activateEnvironment": false
+}
