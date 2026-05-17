@@ -1,7 +1,7 @@
 {
-  "model": "opus",
-  "effortLevel": "medium",
-  "skipDangerousModePermissionPrompt": true,
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "permissions": {
     "allow": [
       "Bash(pwd)",
@@ -26,7 +26,41 @@
       "Bash(git branch --show-current)",
       "Bash(* --version)",
       "Bash(go version)",
-      "Bash(java -version)"
-    ]
-  }
+      "Bash(java -version)",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 1
+  },
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": false,
+    "code-review@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "agent-team@agent-team-dev": true
+  },
+  "extraKnownMarketplaces": {
+    "agent-team-dev": {
+      "source": {
+        "source": "github",
+        "repo": "Fomalhaut647/agent-team"
+      }
+    }
+  },
+  "language": "Chinese",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true
 }
