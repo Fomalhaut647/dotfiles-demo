@@ -37,4 +37,14 @@
     
     ds = diff --staged
     
-    lg = log --oneline --graph --all
+    lg = log --oneline --graph --decorate
+
+    lgn = log --name-only --oneline
+
+    psf = push --force-with-lease
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential

@@ -5,6 +5,7 @@ alias ll='ls -alhF --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
 alias py='python'
+alias claudedsp='claude --dangerously-skip-permissions'
 
 # ===================================================================
 # 万能解压函数 ex()
